@@ -1,5 +1,4 @@
 import nltk
-import pandas as pd
 import random
 
 # Download punkt
@@ -13,7 +12,7 @@ def load_texts(filenames):
     """Load texts from files and tokenize into sentences"""
     sentences = []
     for filename in filenames:
-        with open(filename, 'r', encodings='utf-8') as file:
+        with open(filename, 'r', encoding='utf-8') as file:
             text = file.read()
             sentences.extend(tokenize_text_to_sentences(text))
     return sentences
@@ -22,7 +21,7 @@ def randomize_sentences(sentences, n=10):
     """Randomly select n sentences from the list"""
     return random.sample(sentences, n)
 
-if __name__ == "__main":
+if __name__ == "__main__":
     filenames = ['path/to/text1.txt', 'path/to/text2.txt']
     sentences = load_texts(filenames)
     randomized_sentences = randomize_sentences(sentences, 10)
