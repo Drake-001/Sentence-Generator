@@ -1,11 +1,12 @@
 import nltk
 import random
+import csv
 
-# Download punkt
-nltk.download('punkt')
+# # Download punkt
+# nltk.download('punkt')
 
 def tokenize_text_to_sentences(text):
-    """Tokenize a given text into sentences"""
+    """Tokenizes a given text into sentences"""
     return nltk.sent_tokenize(text)
 
 def load_texts(filenames):
@@ -17,14 +18,21 @@ def load_texts(filenames):
             sentences.extend(tokenize_text_to_sentences(text))
     return sentences
 
-def randomize_sentences(sentences, n=10):
+def randomize_sentences(sentences, n=20):
     """Randomly select n sentences from the list"""
     return random.sample(sentences, n)
 
 if __name__ == "__main__":
-    filenames = ['path/to/text1.txt', 'path/to/text2.txt']
+    filenames = ["C:/Users/ddavi/Python projects/Sentence_Gen/ulysses.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/rainbow.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/homer.txt"]
     sentences = load_texts(filenames)
-    randomized_sentences = randomize_sentences(sentences, 10)
+    randomized_sentences = randomize_sentences(sentences, 20)
+
+    csv_path = "C:/Users/ddavi/Python projects/Sentence_Gen/sentences.csv"
+
+    with open(csv_path, 'a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        for sentence in randomized_sentences:
+            writer.writerow([sentence])
 
     for sentence in randomized_sentences:
         print(sentence)
