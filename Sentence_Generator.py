@@ -25,10 +25,8 @@ def randomize_sentences(sentences, n=20):
 
 
 if __name__ == "__main__":
-
-    filenames = ["C:/Users/ddavi/Python projects/Sentence_Gen/ulysses.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/rainbow.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/homer.txt"]
+    filenames = ["C:/Users/ddavi/Python projects/Sentence_Gen/Inferno.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/Ulysses.txt", "C:/Users/ddavi/Python projects/Sentence_Gen/Gravity.txt"]
     sentences = load_texts(filenames)
     randomized_sentences = randomize_sentences(sentences, 10)
-
     for sentence in randomized_sentences:
         print(sentence)
